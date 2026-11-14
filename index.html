@@ -499,52 +499,56 @@
 </head>
 <body class="font-sans antialiased selection:bg-roseSoft/40 selection:text-espresso">
 
-  <!-- ==================== 1. TOP URGENCY BAR WITH FAKE COUNTDOWN ==================== -->
-  <div class="bg-espresso text-cream text-xs sm:text-sm py-2.5 px-4 text-center sticky top-0 z-50 border-b border-gold/40 shadow-md">
-    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
-      <span class="inline-flex items-center gap-1.5 font-bold text-goldLight tracking-wide">
-        <span class="inline-block w-2 h-2 rounded-full bg-roseSoft animate-ping"></span>
-        <span>OFERTA DE LANZAMIENTO (+450 PÁGINAS + 11 CAJITAS 3D):</span>
-      </span>
-      <span class="text-cream/90 hidden md:inline">Descuento especial y 2 Bonos Gratis terminan en:</span>
-      <div class="inline-flex items-center gap-1 bg-white/10 border border-gold/40 px-2.5 py-0.5 rounded-full font-mono font-bold text-goldLight text-xs sm:text-sm">
-        <span>⏳</span>
-        <span class="js-timer-min">14</span><span>m</span> :
-        <span class="js-timer-sec">47</span><span>s</span>
+  <!-- ==================== 1. STICKY TOP BAR + NAVIGATION (FOLLOWS SCROLL) ==================== -->
+  <div class="sticky top-0 z-50 shadow-md">
+    <!-- Top Urgency Strip -->
+    <div class="bg-espresso text-cream text-xs sm:text-sm py-2 px-4 text-center border-b border-gold/40">
+      <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+        <span class="inline-flex items-center gap-1.5 font-bold text-goldLight tracking-wide">
+          <span class="inline-block w-2 h-2 rounded-full bg-roseSoft animate-ping"></span>
+          <span>OFERTA DE LANZAMIENTO (+450 PÁGINAS + 11 CAJITAS 3D):</span>
+        </span>
+        <span class="text-cream/90 hidden md:inline">Descuento especial y 2 Bonos Gratis terminan en:</span>
+        <div class="inline-flex items-center gap-1 bg-white/10 border border-gold/40 px-2.5 py-0.5 rounded-full font-mono font-bold text-goldLight text-xs sm:text-sm">
+          <span>⏳</span>
+          <span class="js-timer-min">14</span><span>m</span> :
+          <span class="js-timer-sec">47</span><span>s</span>
+        </div>
+        <a href="#checkout-cards" class="inline-flex items-center gap-1 bg-gradient-to-r from-roseDeep to-[#9E4254] text-white hover:brightness-110 font-extrabold text-[11px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm ml-1 transition">
+          ¡Adquiere Ahora! ↓
+        </a>
       </div>
-      <a href="#precios" class="underline text-roseSoft hover:text-white font-bold text-xs uppercase tracking-wider ml-1">
-        Aprovechar ahora →
-      </a>
     </div>
+
+    <!-- Sub-Navigation Bar (Sticky along with top bar) -->
+    <nav class="bg-cream/95 backdrop-blur-md border-b border-gold/25 py-2.5 px-5">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2.5 group">
+          <div class="w-9 h-9 rounded-full bg-gradient-to-br from-roseDeep to-espresso text-cream flex items-center justify-center font-serif font-bold text-lg shadow-sm">
+            ✝
+          </div>
+          <div>
+            <span class="font-serif font-bold text-xl text-espresso tracking-tight block leading-none">Café con Jesús</span>
+            <span class="text-[10px] uppercase tracking-widest text-roseDeep font-bold block mt-0.5">Biblioteca de +450 Páginas</span>
+          </div>
+        </a>
+
+        <div class="hidden lg:flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-coffee">
+          <a href="#muestra" class="hover:text-roseDeep transition">Las 450 Tarjetas</a>
+          <a href="#incluye" class="hover:text-roseDeep transition">¿Qué Incluye?</a>
+          <a href="#ritual" class="hover:text-roseDeep transition">Cómo Funciona</a>
+          <a href="#testimonials" class="hover:text-roseDeep transition">Testimonios</a>
+          <a href="#garantia" class="hover:text-roseDeep transition">Garantía 7 Días</a>
+          <a href="#faq" class="hover:text-roseDeep transition">Preguntas</a>
+        </div>
+
+        <a href="#checkout-cards" class="cta-glow px-5 py-2.5 rounded-full bg-gradient-to-r from-roseDeep to-[#9E4254] text-white hover:brightness-110 transition text-xs sm:text-sm font-extrabold uppercase tracking-wider shadow-md flex items-center gap-1.5">
+          <span>¡Adquiere Ahora!</span>
+          <span>↓</span>
+        </a>
+      </div>
+    </nav>
   </div>
-
-  <!-- ==================== SUB-NAVIGATION BAR ==================== -->
-  <nav class="bg-cream/90 backdrop-blur-md border-b border-gold/20 py-3 px-5 relative z-40">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5 group">
-        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-roseDeep to-espresso text-cream flex items-center justify-center font-serif font-bold text-lg shadow-sm">
-          ✝
-        </div>
-        <div>
-          <span class="font-serif font-bold text-xl text-espresso tracking-tight block leading-none">Café con Jesús</span>
-          <span class="text-[10px] uppercase tracking-widest text-roseDeep font-bold block mt-0.5">Biblioteca de +450 Páginas</span>
-        </div>
-      </a>
-
-      <div class="hidden lg:flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-coffee">
-        <a href="#muestra" class="hover:text-roseDeep transition">Las 450 Tarjetas</a>
-        <a href="#incluye" class="hover:text-roseDeep transition">¿Qué Incluye?</a>
-        <a href="#ritual" class="hover:text-roseDeep transition">Cómo Funciona</a>
-        <a href="#testimonials" class="hover:text-roseDeep transition">Testimonios</a>
-        <a href="#garantia" class="hover:text-roseDeep transition">Garantía 7 Días</a>
-        <a href="#faq" class="hover:text-roseDeep transition">Preguntas</a>
-      </div>
-
-      <a href="#precios" class="px-4 py-2 rounded-full bg-espresso text-goldLight hover:bg-roseDeep hover:text-white transition text-xs font-bold uppercase tracking-wider shadow-sm">
-        Quiero mis 450 Páginas ↗
-      </a>
-    </div>
-  </nav>
 
   <!-- ==================== 2. HERO SECTION WITH "450" HEADLINE + SQUARE 3D BOX ==================== -->
   <header class="hero-photo-bg relative pt-8 pb-20 lg:pt-12 lg:pb-24 overflow-hidden">
@@ -2013,7 +2017,7 @@
         </div>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto reveal">
+      <div id="checkout-cards" class="scroll-mt-32 grid md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto reveal">
         <!-- TIER 1 -->
         <div class="bg-cream text-espresso rounded-3xl p-8 border border-gold/30 flex flex-col justify-between shadow-xl">
           <div>
@@ -2310,9 +2314,36 @@
         <span>•</span>
         <a href="#faq" class="hover:underline">Preguntas Frecuentes</a>
       </div>
-      <p class="opacity-65">© 2026 Café con Jesús. Todos los derechos reservados. Producto digital de descarga inmediata por correo electrónico.</p>
+      <p class="opacity-65 pb-16">© 2026 Café con Jesús. Todos los derechos reservados. Producto digital de descarga inmediata por correo electrónico.</p>
     </div>
   </footer>
+
+  <!-- ==================== FLOATING BOTTOM SCROLL BAR ("¡ADQUIERE AHORA!") ==================== -->
+  <div id="floating-cta-bar" class="fixed bottom-0 inset-x-0 z-50 bg-espresso/95 backdrop-blur-md border-t-2 border-gold shadow-[0_-10px_30px_rgba(59,35,22,0.35)] py-3 px-4 transition-all duration-300 translate-y-full opacity-0 pointer-events-none">
+    <div class="max-w-5xl mx-auto flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="hidden sm:flex w-10 h-10 rounded-xl bg-gradient-to-br from-roseDeep to-[#8E3546] text-white font-sans font-extrabold text-sm items-center justify-center shrink-0 shadow border border-gold/40">
+          450
+        </div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="font-serif font-bold text-base sm:text-lg text-cream truncate">Pack Café con Jesús • +450 Páginas + 11 Cajitas 3D</span>
+            <span class="hidden md:inline-flex items-center gap-1 bg-white/10 border border-gold/40 px-2 py-0.5 rounded-full font-mono font-bold text-goldLight text-xs">
+              ⏳ <span class="js-timer-min">14</span>m : <span class="js-timer-sec">47</span>s
+            </span>
+          </div>
+          <p class="text-[11px] text-goldLight/90 truncate">
+            🛡️ Garantía Incondicional de 7 Días • Descarga Inmediata en PDF
+          </p>
+        </div>
+      </div>
+
+      <a href="#checkout-cards" class="cta-glow shrink-0 px-5 sm:px-7 py-3 rounded-full bg-gradient-to-r from-roseDeep to-[#9E4254] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 border border-white/25">
+        <span>¡Adquiere Ahora!</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      </a>
+    </div>
+  </div>
 
   <!-- ==================== IMAGE ZOOM MODAL ==================== -->
   <div id="card-modal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeCardModal()">
@@ -2535,6 +2566,30 @@
     function closeCardModal() {
       document.getElementById('card-modal').classList.add('hidden');
     }
+
+    // 8. Floating Bottom Scroll Bar Visibility (follows user scroll, hides when directly on checkout cards)
+    (function initFloatingScrollBar() {
+      const bar = document.getElementById('floating-cta-bar');
+      const checkout = document.getElementById('checkout-cards');
+      if (!bar || !checkout) return;
+
+      function onScroll() {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const rect = checkout.getBoundingClientRect();
+        const isCheckoutVisible = rect.top < window.innerHeight * 0.65 && rect.bottom > 180;
+
+        if (scrollY > 360 && !isCheckoutVisible) {
+          bar.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
+          bar.classList.add('translate-y-0', 'opacity-100');
+        } else {
+          bar.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
+          bar.classList.remove('translate-y-0', 'opacity-100');
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
   </script>
 </body>
 </html>
