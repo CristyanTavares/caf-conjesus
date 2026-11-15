@@ -6,6 +6,24 @@
   <title>450 Páginas y Mensajes Bíblicos Diarios — Café con Jesús (Edición Mujer Virtuosa)</title>
   <meta name="description" content="Recibe +450 páginas y mensajes bíblicos diarios para empezar cada mañana escuchando la voz de Dios junto a tu café. Incluye 6 colecciones devocionales, 11 cajitas 3D imprimibles y 2 bonos exclusivos." />
 
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '29682221814729073');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=29682221814729073&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2059,7 +2077,7 @@
           </div>
 
           <div>
-            <a href="https://pay.hotmart.com/J108500166Q?off=dkqxqgjw&checkoutMode=10" target="_blank" rel="noopener" class="block w-full py-3.5 rounded-full border-2 border-espresso text-espresso font-bold text-sm text-center hover:bg-espresso hover:text-cream transition">
+            <a href="https://pay.hotmart.com/J108500166Q?off=dkqxqgjw&checkoutMode=10" onclick="event.preventDefault(); redirectToCheckout('https://pay.hotmart.com/J108500166Q?off=dkqxqgjw&checkoutMode=10');" class="js-checkout-link block w-full py-3.5 rounded-full border-2 border-espresso text-espresso font-bold text-sm text-center hover:bg-espresso hover:text-cream transition cursor-pointer">
               Elegir Pack Básico ($5,90) →
             </a>
             <p class="text-[11px] text-center text-coffee/70 mt-2">🔒 Garantía de 7 días • Descarga inmediata</p>
@@ -2107,7 +2125,7 @@
           </div>
 
           <div>
-            <a href="https://pay.hotmart.com/J108500166Q?off=gbpsf5vh&checkoutMode=10" target="_blank" rel="noopener" class="block w-full py-3.5 rounded-full bg-espresso text-goldLight hover:bg-roseDeep hover:text-white font-extrabold text-center text-sm transition shadow-md">
+            <a href="https://pay.hotmart.com/J108500166Q?off=gbpsf5vh&checkoutMode=10" onclick="event.preventDefault(); redirectToCheckout('https://pay.hotmart.com/J108500166Q?off=gbpsf5vh&checkoutMode=10');" class="js-checkout-link block w-full py-3.5 rounded-full bg-espresso text-goldLight hover:bg-roseDeep hover:text-white font-extrabold text-center text-sm transition shadow-md cursor-pointer">
               Elegir Pack Intermedio ($8,90) →
             </a>
             <p class="text-[11px] text-center text-coffee/75 mt-2">🔒 Garantía de 7 días • Descarga inmediata</p>
@@ -2162,7 +2180,7 @@
           </div>
 
           <div>
-            <a href="https://pay.hotmart.com/J108500166Q?off=gls1je2f&checkoutMode=10" target="_blank" rel="noopener" class="cta-glow block w-full py-4 rounded-full bg-gradient-to-r from-gold via-[#F3C97E] to-gold text-espresso font-extrabold text-center text-sm sm:text-base shadow-lg hover:brightness-105 transition">
+            <a href="https://pay.hotmart.com/J108500166Q?off=gls1je2f&checkoutMode=10" onclick="event.preventDefault(); redirectToCheckout('https://pay.hotmart.com/J108500166Q?off=gls1je2f&checkoutMode=10');" class="js-checkout-link cta-glow block w-full py-4 rounded-full bg-gradient-to-r from-gold via-[#F3C97E] to-gold text-espresso font-extrabold text-center text-sm sm:text-base shadow-lg hover:brightness-105 transition cursor-pointer">
               Sí, Quiero las 450 Páginas + 11 Cajitas ($12,90) →
             </a>
             <div class="mt-3 flex items-center justify-center gap-1.5 text-[11px] font-bold text-goldLight bg-white/10 border border-gold/30 py-1.5 px-3 rounded-xl">
@@ -2660,6 +2678,36 @@
 
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
+    })();
+
+    // 9. Redirect Handler using window.location.href and forcing URL Parameter Forwarding via window.location.search
+    function buildRedirectUrl(baseUrl) {
+      const search = window.location.search;
+      if (!search || search === '?') return baseUrl;
+      const queryParams = search.startsWith('?') ? search.slice(1) : search;
+      const separator = baseUrl.includes('?') ? '&' : '?';
+      return baseUrl + separator + queryParams;
+    }
+
+    function redirectToCheckout(baseUrl) {
+      if (typeof fbq === 'function') {
+        try { fbq('track', 'InitiateCheckout'); } catch (err) {}
+      }
+      window.location.href = buildRedirectUrl(baseUrl);
+    }
+
+    (function initGlobalRedirectForwarding() {
+      // Update href attributes with window.location.search and enforce window.location.href on all external redirects
+      document.querySelectorAll('a[href]').forEach(link => {
+        const rawHref = link.getAttribute('href');
+        if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('javascript:')) return;
+        link.setAttribute('href', buildRedirectUrl(rawHref));
+        link.removeAttribute('target');
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          redirectToCheckout(rawHref);
+        });
+      });
     })();
   </script>
 </body>
